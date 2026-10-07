@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Aroma of Jasmine | Donthanpalle Royal Gastronomy & Dining</title>
+  <meta name="description" content="Aroma of Jasmine — Premier Nizami culinary salon & authentic Hyderabadi dining in Donthanpalle near IBS campus. Slow-cooked Handi Biryani, Bagara Rice, Sizzling Kebabs, Curries & Dining."/>
+  
+  <!-- Favicon Emblem -->
+  <link rel="icon" href="images/logo.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="images/logo.png"/>
+
+  <!-- Google Fonts: Playfair Display, Cinzel, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#11100E',
+              surface: '#191714',
+              surfaceAlt: '#211F1D',
+              card: '#181614',
+              gold: '#C9A45C',
+              goldBright: '#D4AF37',
+              goldLight: '#E8D4A6',
+              goldDark: '#9B7836',
+              saffron: '#C87532',
+              cream: '#F4EBDD',
+              creamMuted: 'rgba(244, 235, 221, 0.70)',
+              creamDim: 'rgba(244, 235, 221, 0.45)',
+              borderSubtle: 'rgba(201, 164, 92, 0.22)',
+              hairline: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(201, 164, 92, 0.18)',
+            'gold-glow-lg': '0 0 45px rgba(201, 164, 92, 0.32)',
+            'inner-gold': 'inset 0 0 20px rgba(201, 164, 92, 0.10)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar - Royal Dusk Theme */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #11100E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2D271E;
+      border: 1px solid rgba(201, 164, 92, 0.25);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C9A45C;
+    }
+
+    /* Ambient Gold Shimmer & Gradients */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF1D6 0%, #C9A45C 45%, #8C6A2E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .saffron-gradient-text {
+      background: linear-gradient(135deg, #FFD1A4 0%, #C87532 50%, #94460A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Background Canvas */
+    #ambientCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Royal Dusk Glass Surfaces */
+    .glass-surface {
+      background: rgba(25, 23, 20, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(201, 164, 92, 0.22);
+    }
+    .glass-header {
+      background: rgba(17, 16, 14, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 164, 92, 0.20);
+    }
+
+    /* Right Angle Architecture - Level 0 Sharp corners */
+    .sharp-card {
+      background: #191714;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sharp-card:hover {
+      border-color: rgba(201, 164, 92, 0.45);
+      box-shadow: 0 0 28px rgba(201, 164, 92, 0.12);
+    }
+
+    /* Single Page Section Switching */
+    .tab-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .tab-section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background: rgba(17, 16, 14, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Subtle image hover zoom */
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom-container img {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.06);
+    }
+  </style>
+</head>
+
+<body class="bg-brand-bg text-brand-cream font-sans antialiased selection:bg-brand-gold selection:text-brand-bg min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- ================= AMBIENT GOLDEN EMBER PARTICLES ================= -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- ================= TOP OPERATIONAL ALERT STRIP ================= -->
+  <aside aria-label="Kitchen hours alert" class="relative z-50 bg-[#161411] border-b border-brand-gold/15 py-2 px-4 text-xs font-sans text-brand-creamMuted tracking-wider text-center flex flex-wrap items-center justify-center gap-3">
+    <span class="inline-flex items-center gap-2 text-brand-gold font-medium">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      KITCHENS LIVE TODAY: 7:00 AM – 11:00 PM
+    </span>
+    <span class="hidden md:inline text-brand-gold/40">•</span>
+    <span class="hidden md:inline">Shankarpalli Road, Near IBS Donthanpalle</span>
+    <span class="hidden md:inline text-brand-gold/40">•</span>
+    <span>Highway Dum Parcel Concierge: <a class="text-brand-gold hover:underline font-semibold ml-1" href="tel:09700097444">097000 97444</a></span>
+  </aside>
+
+  <!-- ================= STICKY MAIN HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 glass-header px-4 sm:px-8 lg:px-12 py-3.5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Crest & Identity -->
+      <a class="group flex items-center gap-3.5 focus:outline-none" href="javascript:void(0)" onclick="switchTab('home')">
+        <div class="relative w-12 h-12 rounded-full overflow-hidden border border-brand-gold/60 bg-brand-surface flex items-center justify-center group-hover:border-brand-goldBright transition-all duration-300 group-hover:scale-105 shadow-md shadow-brand-gold/15">
+          <img src="images/logo.png" alt="Aroma of Jasmine Logo" class="w-full h-full object-cover rounded-full" onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"/>
+          <!-- Royal Jasmine & Nizami Crest Fallback SVG -->
+          <svg class="hidden w-full h-full fill-none stroke-brand-gold p-1" stroke-width="2.5" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" opacity="0.6" r="44" stroke="#C9A45C" stroke-dasharray="2 3" stroke-width="1.5"></circle>
+            <path d="M50 16 C57 30 67 38 80 40 C67 44 57 52 50 66 C43 52 33 44 20 40 C33 38 43 30 50 16 Z" fill="#C9A45C" fill-opacity="0.3"></path>
+            <path d="M50 24 C54 34 61 40 71 42 C61 45 54 51 50 61 C46 51 39 45 29 42 C39 40 46 34 50 24 Z" fill="#E8D4A6" fill-opacity="0.85"></path>
+            <circle cx="50" cy="42" fill="#FFEAA7" r="4.5"></circle>
+            <path d="M50 42 L50 80 M42 75 Q50 83 58 75" stroke="#C9A45C" stroke-linecap="round" stroke-width="2.5"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-brand-cream group-hover:text-brand-gold transition-colors">
+            Aroma of Jasmine
+          </span>
+          <span class="font-cinzel text-[10px] tracking-[0.28em] text-brand-gold uppercase">
+            Donthanpalle • Hyderabad
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Tabs -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 bg-brand-surface/90 border border-brand-gold/25 p-1 text-xs lg:text-sm tracking-wider uppercase font-medium">
+        <button class="nav-tab px-4 lg:px-5 py-2 transition-all text-brand-bg bg-brand-gold font-semibold" id="tab-btn-home" onclick="switchTab('home')">
+          Home
+        </button>
+        <button class="nav-tab px-4 lg:px-5 py-2 transition-all text-brand-creamMuted hover:text-white hover:bg-white/5" id="tab-btn-menu" onclick="switchTab('menu')">
+          The Grand Menu
+        </button>
+        <button class="nav-tab px-4 lg:px-5 py-2 transition-all text-brand-creamMuted hover:text-white hover:bg-white/5" id="tab-btn-visit" onclick="switchTab('visit')">
+          Visit & Directions
+        </button>
+      </nav>
+
+      <!-- Action Cluster: Direct Line + Tasting Slate Drawer + Reserve CTA -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Direct Phone -->
+        <a class="hidden xl:flex items-center gap-2 text-xs text-brand-gold border border-brand-gold/30 hover:border-brand-gold px-3.5 py-2 transition-colors uppercase tracking-wider" href="tel:09700097444">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span>097000 97444</span>
+        </a>
+
+        <!-- Tasting Slate (Cart) Drawer Trigger -->
+        <button class="relative p-2.5 border border-brand-gold/40 hover:border-brand-gold text-brand-gold bg-brand-surface hover:bg-brand-gold/10 transition-all flex items-center justify-center" onclick="toggleSlateDrawer()" aria-label="Open Tasting Slate Order Drawer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+          <span class="absolute -top-1.5 -right-1.5 bg-brand-saffron text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border border-brand-bg transition-transform scale-100" id="cart-badge-count">0</span>
+        </button>
+
+        <!-- Primary CTA: Reserve Table -->
+        <button class="hidden sm:inline-flex items-center gap-2 bg-brand-gold text-brand-bg hover:bg-brand-goldBright font-sans font-bold text-xs uppercase tracking-widest px-5 py-2.5 transition-all shadow-md shadow-brand-gold/20" onclick="openReservationModal()">
+          <span>Reserve Table</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="md:hidden text-brand-gold p-2 border border-brand-gold/30 hover:bg-white/5" onclick="toggleMobileNav()" aria-label="Toggle Navigation Menu">
+          <svg class="w-6 h-6" fill="none" id="mobile-menu-icon" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="hidden md:hidden pt-4 pb-3 border-t border-brand-gold/20 mt-3 flex flex-col gap-2 bg-brand-surface p-4" id="mobile-nav-panel">
+      <button class="text-left px-3 py-2 text-sm text-brand-cream hover:bg-white/5 flex items-center justify-between" onclick="switchTab('home'); toggleMobileNav()">
+        <span>The Grand Home Experience</span> <span>→</span>
+      </button>
+      <button class="text-left px-3 py-2 text-sm text-brand-cream hover:bg-white/5 flex items-center justify-between" onclick="switchTab('menu'); toggleMobileNav()">
+        <span>The Culinary Menu (116 Items)</span> <span>→</span>
+      </button>
+      <button class="text-left px-3 py-2 text-sm text-brand-cream hover:bg-white/5 flex items-center justify-between" onclick="switchTab('visit'); toggleMobileNav()">
+        <span>Directions, Highway Concierge & Hours</span> <span>→</span>
+      </button>
+      <div class="pt-3 border-t border-white/10 flex flex-col gap-2">
+        <button class="w-full text-center py-2.5 bg-brand-gold text-brand-bg font-bold text-xs uppercase tracking-wider" onclick="openReservationModal(); toggleMobileNav()">
+          Reserve A Table Online
+        </button>
+        <a class="w-full text-center py-2.5 border border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-wider" href="tel:09700097444">
+          Direct Call: 097000 97444
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN MULTI-PAGE CONTAINER ================= -->
+  <main class="flex-1 relative z-10">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: HOME & GRAND EXPERIENCE -->
+    <!-- ======================================================== -->
+    <section class="tab-section active" id="tab-home">
+      
+      <!-- HERO SECTION -->
+      <div class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-8 py-24 overflow-hidden border-b border-brand-gold/15">
+        <!-- Background Layer with Luxurious Cinematic Dining Room -->
+        <div class="absolute inset-0 z-0">
+          <img alt="Aroma of Jasmine Royal Dining Hall" class="w-full h-full object-cover object-center filter brightness-50 contrast-110 scale-105" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/75 to-brand-bg/40"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,164,92,0.18)_0%,_transparent_75%)]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-brand-gold/40 bg-brand-surface/90 text-brand-gold text-xs tracking-[0.25em] uppercase font-cinzel mb-8 shadow-md">
+            <span>✨ TELANGANA ROYALTY & NIZAMI TRADITIONS</span>
+          </div>
+          
+          <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.12] mb-6 text-brand-cream">
+            Where Flavour Feels Like Home.<br/>
+            <span class="gold-gradient-text italic font-serif font-light">A Royal Hyderabadi Haven.</span>
+          </h1>
+
+          <p class="font-sans text-brand-creamMuted text-base sm:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-10">
+            Honoring age-old culinary secrets from Nizami royal kitchens to coastal Andhra feasts in Donthanpalle. Slow-cooked copper handis, woodsmoke embers, and unhurried hospitality along the Shankarpalli expressway.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16">
+            <button class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-bg hover:bg-brand-cream font-sans font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-brand-gold/25" onclick="switchTab('menu')">
+              Explore The Grand Menu (40+ Dishes)
+            </button>
+            <button class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-cream hover:bg-brand-gold/15 font-sans font-semibold text-xs uppercase tracking-widest transition-all" onclick="openReservationModal()">
+              Book A Table
+            </button>
+          </div>
+
+          <!-- Authentic Culinary Standards -->
+          <div class="grid grid-cols-2 md:grid-cols-2 gap-6 max-w-xl mx-auto pt-8 border-t border-brand-gold/25">
+            <div class="p-3 text-center border-r border-white/5">
+              <span class="font-serif text-2xl lg:text-3xl text-brand-gold font-bold block">100%</span>
+              <span class="text-xs text-brand-creamDim uppercase tracking-wider mt-1 block">Pure Single-Origin Spices</span>
+            </div>
+            <div class="p-3 text-center">
+              <span class="font-serif text-2xl lg:text-3xl text-brand-gold font-bold block">0%</span>
+              <span class="text-xs text-brand-creamDim uppercase tracking-wider mt-1 block">Artificial Colors or Preservatives</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHEF SIGNATURES SHOWCASE -->
+      <section class="py-24 px-4 sm:px-8 lg:px-12 bg-[#141210]">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <span class="font-cinzel text-xs text-brand-gold uppercase tracking-[0.25em] block mb-2">MASTERFUL OFFERINGS</span>
+              <h2 class="font-serif text-3xl sm:text-5xl text-brand-cream font-normal">Chef's Signature Creations</h2>
+            </div>
+            <button class="mt-4 md:mt-0 text-brand-gold hover:text-brand-goldBright text-sm font-serif italic flex items-center gap-2 group" onclick="switchTab('menu')">
+              <span>View all 116 creations in the culinary menu</span>
+              <span class="group-hover:translate-x-1.5 transition-transform">→</span>
+            </button>
+          </div>
+
+          <!-- Featured Cards Grid (From New Menu) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Dish 1: Chicken Majestic -->
+            <div class="sharp-card group flex flex-col justify-between overflow-hidden">
+              <div class="relative h-64 img-zoom-container">
+                <img alt="Chicken Majestic" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80"/>
+                <span class="absolute top-4 left-4 bg-brand-gold text-brand-bg text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
+                  Non-Veg Starter • House Special
+                </span>
+                <span class="absolute bottom-4 right-4 bg-brand-bg/90 backdrop-blur-md text-brand-gold font-serif text-base font-bold px-3 py-1 border border-brand-gold/30">
+                  ₹319
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-serif text-2xl text-brand-cream group-hover:text-brand-gold transition-colors">Chicken Majestic</h3>
+                  </div>
+                  <p class="text-sm text-brand-creamMuted font-light mb-6">
+                    Tender boneless chicken batons marinated in house spices, crisp-fried and tossed with fresh green chillies, aromatic curry leaves, and velvety spiced curd.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span class="text-xs text-brand-gold font-mono">Crisp & Juicy</span>
+                  <button class="bg-brand-gold text-brand-bg hover:bg-brand-cream text-xs font-bold px-4 py-2 uppercase tracking-wider transition-all" onclick="addToSlate('Chicken Majestic', 319, 'Standard Plate')">
+                    + Add (₹319)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dish 2: Paneer Butter Masala -->
+            <div class="sharp-card group flex flex-col justify-between overflow-hidden">
+              <div class="relative h-64 img-zoom-container">
+                <img alt="Paneer Butter Masala" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&q=80"/>
+                <span class="absolute top-4 left-4 bg-emerald-500 text-brand-bg text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
+                  Veg Curry • Royal Bestseller
+                </span>
+                <span class="absolute bottom-4 right-4 bg-brand-bg/90 backdrop-blur-md text-brand-gold font-serif text-base font-bold px-3 py-1 border border-brand-gold/30">
+                  ₹269
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-serif text-2xl text-brand-cream group-hover:text-brand-gold transition-colors">Paneer Butter Masala</h3>
+                  </div>
+                  <p class="text-sm text-brand-creamMuted font-light mb-6">
+                    Fresh cottage cheese cubes simmered in a silky, rich buttery tomato cream gravy with aromatic roasted kasuri methi and subtle cardamom.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span class="text-xs text-brand-gold font-mono">Rich & Silky Gravy</span>
+                  <button class="bg-brand-gold text-brand-bg hover:bg-brand-cream text-xs font-bold px-4 py-2 uppercase tracking-wider transition-all" onclick="addToSlate('Paneer Butter Masala', 269, 'Standard Bowl')">
+                    + Add (₹269)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dish 3: Crispy Corn -->
+            <div class="sharp-card group flex flex-col justify-between overflow-hidden">
+              <div class="relative h-64 img-zoom-container">
+                <img alt="Crispy Corn" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80"/>
+                <span class="absolute top-4 left-4 bg-brand-saffron text-white text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
+                  Veg Starter • Crowd Favorite
+                </span>
+                <span class="absolute bottom-4 right-4 bg-brand-bg/90 backdrop-blur-md text-brand-gold font-serif text-base font-bold px-3 py-1 border border-brand-gold/30">
+                  ₹229
+                </span>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-serif text-2xl text-brand-cream group-hover:text-brand-gold transition-colors">Crispy Corn</h3>
+                  </div>
+                  <p class="text-sm text-brand-creamMuted font-light mb-6">
+                    Tender American sweet corn kernels flash-fried until crackling crisp, tossed with freshly cracked black pepper, chopped scallions, and lime juice.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span class="text-xs text-brand-gold font-mono">Crackling Crisp</span>
+                  <button class="bg-brand-gold text-brand-bg hover:bg-brand-cream text-xs font-bold px-4 py-2 uppercase tracking-wider transition-all" onclick="addToSlate('Crispy Corn', 229, 'Standard Plate')">
+                    + Add (₹229)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- THE CULINARY ETHOS BANNER -->
+      <section class="py-24 px-4 sm:px-8 lg:px-12 relative bg-brand-bg border-y border-brand-gold/15 overflow-hidden">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <span class="font-cinzel text-xs text-brand-gold uppercase tracking-[0.25em] block mb-3">UNCOMPROMISING DISCIPLINE</span>
+            <h2 class="font-serif text-3xl sm:text-5xl text-brand-cream mb-6 leading-tight">
+              Slow-Fired Traditions That Refuse to Hurry.
+            </h2>
+            <p class="text-brand-creamMuted font-light leading-relaxed mb-8">
+              At Donthanpalle, machines do not rush time. Fire, wood, stone, and generational memory govern each earthen vessel. Our khansamas begin at dawn, grounding native spices in basalt stone mortars so volatile essential oils retain their royal aroma.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="h-10 w-10 border border-brand-gold/40 bg-brand-surface flex items-center justify-center shrink-0 text-brand-gold font-cinzel text-sm">01</div>
+                <div>
+                  <h4 class="font-serif text-lg text-brand-cream">Charcoal Hearth & Sealed Copper Degs</h4>
+                  <p class="text-xs text-brand-creamMuted mt-1">Heavy lid seams sealed with wet wheat dough to recirculate steam inside the meat without a single drop of added water.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="h-10 w-10 border border-brand-gold/40 bg-brand-surface flex items-center justify-center shrink-0 text-brand-gold font-cinzel text-sm">02</div>
+                <div>
+                  <h4 class="font-serif text-lg text-brand-cream">Basalt Mortar Hand-Pounded Masalas</h4>
+                  <p class="text-xs text-brand-creamMuted mt-1">Cold-crushed whole cloves, black cardamom, and mace preserve sweet aromatic peaks lost in fast electric grinding.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="h-10 w-10 border border-brand-gold/40 bg-brand-surface flex items-center justify-center shrink-0 text-brand-gold font-cinzel text-sm">03</div>
+                <div>
+                  <h4 class="font-serif text-lg text-brand-cream">True Courtly Tehzeeb & Generosity</h4>
+                  <p class="text-xs text-brand-creamMuted mt-1">Generous portions meant for shared Dastarkhwan tables, accompanied by complimentary hot shorba and cold sherbet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="relative sharp-card overflow-hidden shadow-2xl border-brand-gold/40">
+              <img alt="Traditional Copper Handi Cooking" class="w-full h-[480px] object-cover" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <div class="absolute bottom-8 left-8 right-8">
+                <p class="font-serif text-xl italic text-brand-goldLight">"Cooking in Donthanpalle isn't merely feeding travelers; it is welcoming them into our ancestral home."</p>
+                <span class="text-xs text-brand-gold font-cinzel mt-2 block tracking-widest">— KHANSAMA DIRECTORY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            <!-- PHOTO AMBIANCE GALLERY -->
+      <section class="py-20 px-4 sm:px-8 lg:px-12 bg-brand-surface border-t border-brand-gold/15">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="font-cinzel text-xs text-brand-gold uppercase tracking-[0.25em] block mb-2">SANCTUARY GALLERY</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-brand-cream">The Architecture of Aroma of Jasmine</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="sharp-card h-72 overflow-hidden img-zoom-container relative">
+              <img alt="Outdoor Dining Lawn" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                <span class="font-serif text-lg text-brand-cream font-medium">Jasmine Courtyard & Lawns</span>
+              </div>
+            </div>
+            <div class="sharp-card h-72 overflow-hidden img-zoom-container relative">
+              <img alt="Grand Dining Hall" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                <span class="font-serif text-lg text-brand-cream font-medium">Grand Dining Hall</span>
+              </div>
+            </div>
+            <div class="sharp-card h-72 overflow-hidden img-zoom-container relative">
+              <img alt="Sizzling Live Sigri Hearth" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                <span class="font-serif text-lg text-brand-cream font-medium">Live Charcoal Sigri & Hearth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTANT QUICK RESERVATION STRIP -->
+      <section class="py-20 px-4 sm:px-8 lg:px-12 bg-gradient-to-b from-[#14120F] to-brand-bg">
+        <div class="max-w-5xl mx-auto sharp-card p-8 sm:p-12 border-brand-gold/40 relative">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="font-cinzel text-xs text-brand-gold tracking-[0.2em] uppercase">PRIORITY DINING SEANCE</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-brand-cream mt-2">Request Your Table in Donthanpalle</h2>
+            <p class="text-sm text-brand-creamMuted mt-2">Tables are held for 15 minutes past arrival. Complimentary valet parking is provided at our porte-cochère.</p>
+          </div>
+
+          <form class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" onsubmit="handleQuickReservation(event)">
+            <div>
+              <label class="text-xs uppercase text-brand-creamDim tracking-wider block mb-1.5 font-medium">Your Name</label>
+              <input id="quick-res-name" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-3 text-sm text-brand-cream focus:outline-none focus:border-brand-gold transition-colors" placeholder="Guest Name" required type="text"/>
+            </div>
+            <div>
+              <label class="text-xs uppercase text-brand-creamDim tracking-wider block mb-1.5 font-medium">Phone Number</label>
+              <input id="quick-res-phone" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-3 text-sm text-brand-cream focus:outline-none focus:border-brand-gold transition-colors" placeholder="098765 43210" required type="tel"/>
+            </div>
+            <div>
+              <label class="text-xs uppercase text-brand-creamDim tracking-wider block mb-1.5 font-medium">Date & Slot</label>
+              <select id="quick-res-slot" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-3 text-sm text-brand-cream focus:outline-none focus:border-brand-gold transition-colors">
+                <option>Today • Dinner (7:30 PM)</option>
+                <option>Today • Late Night (9:00 PM)</option>
+                <option>Tomorrow • Lunch (1:00 PM)</option>
+                <option>Tomorrow • Dinner (8:00 PM)</option>
+                <option>This Weekend • Lunch (1:30 PM)</option>
+                <option>This Weekend • Dinner (8:30 PM)</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button class="w-full py-3.5 px-6 bg-brand-gold text-brand-bg font-sans font-bold text-xs uppercase tracking-widest hover:bg-brand-cream transition-all shadow-lg shadow-brand-gold/20 flex items-center justify-center gap-2" type="submit">
+                <span>Book Table on WhatsApp</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.014.376-.101c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <div class="hidden mt-4 p-4 bg-emerald-950/40 border border-emerald-500/40 text-center text-xs text-emerald-300 font-sans" id="quick-res-alert">
+            ✓ Reservation request prepared and sent to WhatsApp management (+91 97000 97444).
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: THE GRAND CULINARY MENU -->
+    <!-- ======================================================== -->
+    <section class="tab-section" id="tab-menu">
+      <div class="py-12 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        
+        <!-- Header & Live Kitchen Status -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between border-b border-brand-gold/25 pb-8 mb-8 gap-6">
+          <div>
+            <span class="font-cinzel text-xs text-brand-gold tracking-[0.25em] uppercase block mb-1">INDIAN & INDO-CHINESE SPECIALTIES</span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-cream font-normal">Starters & Authentic Curries.</h1>
+            <p class="text-brand-creamMuted text-sm sm:text-base max-w-2xl mt-3 font-light">
+              Handcrafted Indian and Indo-Chinese veg & non-veg starters, wok specialties, and slow-simmered rich curries prepared with fresh ingredients.
+            </p>
+          </div>
+          
+          <div class="bg-brand-surface border border-brand-gold/40 p-4 flex items-center gap-4 shrink-0 shadow-lg">
+            <div class="w-10 h-10 bg-brand-gold/15 flex items-center justify-center text-brand-gold text-lg">
+              🔥
+            </div>
+            <div>
+              <span class="text-[11px] uppercase tracking-wider text-brand-gold font-bold block">Live Kitchen Status</span>
+              <span class="text-xs text-brand-cream">Sizzling Woks & Simmering Curries Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Controls: Search & Category Chips & Dietary Filters -->
+        <div class="sticky top-20 z-30 bg-brand-bg/95 backdrop-blur-md py-4 mb-8 border-b border-white/10">
+          <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            
+            <!-- Category Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0">
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-gold text-brand-bg" onclick="filterMenuCategory('all', this)">
+                All Items (116)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('biryani', this)">
+                Biryani & Rice (17)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('fried-rice', this)">
+                Fried Rice (15)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('noodles', this)">
+                Noodles (12)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('veg-starter', this)">
+                Veg Starters (15)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('nonveg-starter', this)">
+                Non-Veg Starters (15)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('veg-curry', this)">
+                Veg Curries (18)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('nonveg-curry', this)">
+                Non-Veg Curries (16)
+              </button>
+              <button class="menu-cat-btn px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-all bg-brand-surface text-brand-creamMuted hover:text-white border border-white/5" onclick="filterMenuCategory('bread', this)">
+                Roti's & Breads (8)
+              </button>
+            </div>
+
+            <!-- Dietary Toggle & Search Input -->
+            <div class="flex items-center gap-3 w-full lg:w-auto">
+              <!-- Veg/Non-Veg Filter -->
+              <select id="dietary-filter" class="bg-brand-surface border border-brand-gold/30 px-3 py-2 text-xs text-brand-cream focus:outline-none focus:border-brand-gold" onchange="applyFilters()">
+                <option value="all">All Diets</option>
+                <option value="veg">🟢 Pure Veg (63)</option>
+                <option value="nonveg">🔴 Non-Veg (53)</option>
+              </select>
+
+              <!-- Search input -->
+              <div class="relative flex-1 lg:w-60">
+                <input class="w-full bg-brand-surface border border-brand-gold/30 pl-9 pr-4 py-2 text-xs text-white placeholder-brand-creamDim focus:outline-none focus:border-brand-gold transition-colors" id="menu-search-input" onkeyup="applyFilters()" placeholder="Search biryani, noodles, starter, curry..." type="text"/>
+                <svg class="w-4 h-4 text-brand-gold absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Master Degustation Callout Banner -->
+        <div class="sharp-card p-6 sm:p-8 mb-12 border-brand-gold/45 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden bg-gradient-to-r from-brand-surface via-brand-surface to-[#221B14]">
+          <div class="w-full md:w-1/3 overflow-hidden h-56 img-zoom-container">
+            <img alt="Chicken Majestic" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80"/>
+          </div>
+          <div class="w-full md:w-2/3">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold px-3 py-1 bg-brand-gold/15 border border-brand-gold/30">FEATURED CHEF SPECIAL</span>
+            <h3 class="font-serif text-2xl sm:text-3xl text-brand-cream mt-2 mb-2">Chicken Majestic</h3>
+            <p class="text-xs sm:text-sm text-brand-creamMuted font-light mb-5 leading-relaxed">
+              Thinly sliced tender chicken batons marinated in house spices, crisp-fried and tossed with fresh green chillies, aromatic curry leaves, and velvety spiced curd.
+            </p>
+            <div class="flex items-center gap-5">
+              <span class="font-serif text-2xl text-brand-gold font-bold">₹319</span>
+              <button class="bg-brand-gold hover:bg-brand-cream text-brand-bg text-xs font-bold px-5 py-2.5 uppercase tracking-wider transition-all" onclick="addToSlate('Chicken Majestic', 319, 'Standard Plate')">
+                + Add To Tasting Slate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Menu Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-items-grid">
+          <!-- Dynamically populated and filtered via JS below for comprehensive 40+ item catalog -->
+        </div>
+
+      </div>
+    </section>
+
+<!-- ======================================================== -->
+    <!-- TAB 4: VISIT, LOCATION & RESERVATIONS -->
+    <!-- ======================================================== -->
+    <section class="tab-section" id="tab-visit">
+      <div class="py-16 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-12">
+          <span class="font-cinzel text-xs text-brand-gold tracking-[0.25em] uppercase block mb-2">SANCTUARY • DONTHANPALLE</span>
+          <h1 class="font-serif text-4xl sm:text-6xl text-brand-cream font-normal">Find Us in Donthanpalle.<br/><span class="italic text-brand-goldLight">Your Table is Awaiting.</span></h1>
+          <p class="text-brand-creamMuted text-base mt-4 font-light">
+            A culinary retreat nestled past the city rim along the breezy Shankarpalli expressway, cradled in warm jasmine breezes and authentic royal hospitality.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Location Details & Driving Times (Left 6 Cols) -->
+          <div class="lg:col-span-6 space-y-8">
+            
+            <!-- Address Card -->
+            <div class="sharp-card p-8 border-brand-gold/35">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border border-brand-gold/50 bg-[#11100E] flex items-center justify-center text-brand-gold shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+                </div>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-brand-gold font-bold">The Estate Address</span>
+                  <h3 class="font-serif text-2xl text-brand-cream mt-1">Shankarpalli – Hyderabad Road</h3>
+                  <p class="text-sm text-brand-creamMuted mt-1 leading-relaxed">
+                    Near IBS Campus, Donthanpalle, Hyderabad, Telangana 501203.
+                  </p>
+                  <p class="text-xs text-brand-gold font-mono mt-2">GPS Coordinates: 17.4124° N, 78.2140° E</p>
+
+                  <div class="mt-5 flex flex-wrap gap-3">
+                    <a class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-cream text-brand-bg text-xs font-bold px-4 py-2.5 transition-colors uppercase tracking-wider" href="https://www.google.com/maps/search/?api=1&query=AROMA+OF+JASMINE+Restaurant+Shankarpalli+Hyderabad+Road+IBS+Donthanpalle+Telangana+501203" rel="noopener noreferrer" target="_blank">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+                      <span>Open in Google Maps</span>
+                    </a>
+                    <a class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-brand-cream text-xs font-semibold px-4 py-2.5 border border-white/10 transition-colors uppercase tracking-wider" href="tel:09700097444">
+                      <span>Call: 097000 97444</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Driving Approximations -->
+            <div class="sharp-card p-6 border-brand-gold/25">
+              <h4 class="font-serif text-xl text-brand-cream mb-4">Estimated Travel Times from Hubs</h4>
+              <div class="space-y-4 text-sm">
+                <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                  <div>
+                    <span class="text-brand-cream font-medium block">Financial District / Gachibowli</span>
+                    <span class="text-xs text-brand-creamDim">Direct via Shankarpalli Expressway (19.4 km)</span>
+                  </div>
+                  <span class="font-serif text-lg text-brand-gold font-bold">25 Mins</span>
+                </div>
+                <div class="flex justify-between items-center pb-3 border-b border-white/5">
+                  <div>
+                    <span class="text-brand-cream font-medium block">Kokapet & Neopolis SEZ</span>
+                    <span class="text-xs text-brand-creamDim">Via Outer Ring Road Exit 1 & Vattinagulapally (15.2 km)</span>
+                  </div>
+                  <span class="font-serif text-lg text-brand-gold font-bold">20 Mins</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div>
+                    <span class="text-brand-cream font-medium block">IBS Donthanpalle Campus</span>
+                    <span class="text-xs text-brand-creamDim">Immediate neighbor lane access (0.6 km)</span>
+                  </div>
+                  <span class="font-serif text-lg text-brand-gold font-bold">2 Mins</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Highway Curbside Handi Pickup Callout -->
+            <div class="bg-gradient-to-r from-brand-saffron/20 to-brand-gold/10 border border-brand-saffron/40 p-6 sharp-card">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-brand-saffron block mb-1">ROADSIDE EXPRESS</span>
+              <h4 class="font-serif text-xl text-brand-cream">Highway Handi Parcel Concierge</h4>
+              <p class="text-xs text-brand-creamMuted mt-1 leading-relaxed">
+                Cruising Shankarpalli highway towards Vikarabad? Pre-order dum biryani handis and charcoal tandoor specials 30 minutes ahead. Our steward brings your heat-sealed earthenware direct to your car window at the curb.
+              </p>
+              <div class="mt-4 flex items-center gap-3">
+                <a class="inline-flex items-center gap-2 bg-brand-saffron text-white text-xs font-bold px-4 py-2 hover:bg-brand-cream hover:text-brand-bg transition-colors uppercase tracking-wider" href="tel:09700097444">
+                  <span>Call Curbside Handi Desk</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Comprehensive Reservation Form (Right 6 Cols) -->
+          <div class="lg:col-span-6 sharp-card p-8 sm:p-10 border-brand-gold/45 shadow-2xl" id="full-reservation-card">
+            <span class="font-cinzel text-xs text-brand-gold tracking-[0.25em] uppercase block mb-2">RESERVE YOUR EXPERIENCE</span>
+            <h3 class="font-serif text-3xl text-brand-cream mb-2">Curate Your Dining Séance</h3>
+            <p class="text-xs text-brand-creamMuted font-light mb-6">Choose your preferred sitting to allow our khansamas to prepare your course.</p>
+            
+            <form class="space-y-4" onsubmit="handleFullReservation(event)">
+              <!-- Service Window -->
+              <div>
+                <label class="text-xs font-semibold uppercase text-brand-creamDim tracking-wider block mb-2">Select Service Window</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <label class="border border-brand-gold/30 p-3 bg-[#11100E] cursor-pointer text-center hover:border-brand-gold">
+                    <input checked class="accent-brand-gold block mx-auto mb-1" name="res-window" type="radio"/>
+                    <span class="text-xs text-white font-medium block">Lunch Feast</span>
+                    <span class="text-[10px] text-brand-creamDim">12:00 PM – 4:00 PM</span>
+                  </label>
+                  <label class="border border-brand-gold/30 p-3 bg-[#11100E] cursor-pointer text-center hover:border-brand-gold">
+                    <input class="accent-brand-gold block mx-auto mb-1" name="res-window" type="radio"/>
+                    <span class="text-xs text-white font-medium block">Dinner</span>
+                    <span class="text-[10px] text-brand-creamDim">7:00 PM – 11:00 PM</span>
+                  </label>
+                  <label class="border border-brand-gold/30 p-3 bg-[#11100E] cursor-pointer text-center hover:border-brand-gold">
+                    <input class="accent-brand-gold block mx-auto mb-1" name="res-window" type="radio"/>
+                    <span class="text-xs text-white font-medium block">Late Night</span>
+                    <span class="text-[10px] text-brand-creamDim">10:00 PM – 12:30 AM</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Guest details -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Full Name</label>
+                  <input id="full-res-name" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" placeholder="Guest Name" required type="text"/>
+                </div>
+                <div>
+                  <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Contact Mobile</label>
+                  <input id="full-res-phone" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" placeholder="098765 43210" required type="tel"/>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Sitting Date</label>
+                  <input id="full-res-date" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" type="date" value="2026-10-07"/>
+                </div>
+                <div>
+                  <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Guests in Party</label>
+                  <select id="full-res-guests" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold">
+                    <option>2 Guests</option>
+                    <option>4 Guests</option>
+                    <option>6 to 8 Guests</option>
+                    <option>10+ Guests</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Atmosphere Preference -->
+              <div>
+                <label class="text-xs font-semibold uppercase text-brand-creamDim tracking-wider block mb-1">Seating Atmosphere Preference</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <label class="border border-white/10 p-2.5 bg-[#11100E] text-center cursor-pointer hover:border-brand-gold text-xs text-brand-creamMuted">
+                    <input checked class="accent-brand-gold block mx-auto mb-1" name="ambiance-pref" type="radio"/>
+                    Jasmine Courtyard
+                  </label>
+                  <label class="border border-white/10 p-2.5 bg-[#11100E] text-center cursor-pointer hover:border-brand-gold text-xs text-brand-creamMuted">
+                    <input class="accent-brand-gold block mx-auto mb-1" name="ambiance-pref" type="radio"/>
+                    Air-Cooled Salon
+                  </label>
+                  <label class="border border-white/10 p-2.5 bg-[#11100E] text-center cursor-pointer hover:border-brand-gold text-xs text-brand-creamMuted">
+                    <input class="accent-brand-gold block mx-auto mb-1" name="ambiance-pref" type="radio"/>
+                    Verandah Gazebo
+                  </label>
+                </div>
+              </div>
+
+              <!-- House Hospitality Etiquette -->
+              <div class="bg-[#11100E] p-3.5 border border-white/5 space-y-1.5 text-[11px] text-brand-creamDim">
+                <p>• Smart Elegant or Casual attire welcomed.</p>
+                <p>• 15-minute seating grace maintained during rush dining hours.</p>
+                <p>• Convenient parking assistance available on arrival.</p>
+              </div>
+
+              <button class="w-full py-4 bg-brand-gold text-brand-bg font-sans font-bold text-xs uppercase tracking-widest hover:bg-brand-cream transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center gap-2" type="submit">
+                <span>Book Table on WhatsApp (Instant Notification)</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.014.376-.101c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+              </button>
+            </form>
+
+            <div class="hidden mt-4 p-4 bg-emerald-950/40 border border-emerald-500/40 text-center text-xs text-emerald-300" id="full-res-alert">
+              ✓ Table booking dispatched to management WhatsApp (+91 97000 97444).
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= TASTING SLATE (CART & ORDER DRAWER) ================= -->
+  <aside aria-label="Tasting slate and cart drawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-[420px] bg-[#141210] border-l border-brand-gold/35 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6" id="tasting-slate-drawer">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-brand-gold/25 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🏺</span>
+          <div>
+            <h3 class="font-serif text-xl text-brand-cream font-bold">Your Tasting Slate</h3>
+            <span class="text-[10px] text-brand-gold font-cinzel uppercase tracking-wider">Aroma of Jasmine Order Desk</span>
+          </div>
+        </div>
+        <button class="text-brand-creamMuted hover:text-white p-1" onclick="toggleSlateDrawer()" aria-label="Close Tasting Slate">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+      </div>
+
+      <!-- Item list -->
+      <div class="space-y-3 max-h-[50vh] overflow-y-auto pr-1" id="slate-items-list">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+
+    <!-- Drawer Footer: Totals & Direct Order Actions -->
+    <div class="pt-4 border-t border-brand-gold/25">
+      <div class="flex justify-between items-baseline mb-2">
+        <span class="text-xs uppercase tracking-wider text-brand-creamDim">Estimated Subtotal:</span>
+        <span class="font-serif text-2xl text-brand-gold font-bold" id="slate-subtotal-price">₹0</span>
+      </div>
+      <p class="text-[11px] text-brand-creamDim mb-4">GST (5%) & earthen packaging calculated on final receipt. Cash, UPI, and Cards accepted.</p>
+
+      <div class="space-y-2.5">
+        <a class="w-full flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors" href="https://wa.me/919700097444?text=Greetings%20Aroma%20of%20Jasmine.%20I%20would%20like%20to%20place%20an%20order." id="whatsapp-order-btn" target="_blank">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"></path></svg>
+          <span>Send Order via WhatsApp</span>
+        </a>
+
+        <a class="w-full flex items-center justify-center gap-2 py-3 bg-[#191714] border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-bg font-bold text-xs uppercase tracking-wider transition-colors" href="tel:09700097444">
+          <span>Call Dastarkhwan Direct</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= RESERVATION MODAL ================= -->
+  <div class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4" id="reservationModal">
+    <div class="sharp-card p-8 sm:p-10 max-w-lg w-full border-brand-gold/40 relative shadow-2xl bg-[#141210]">
+      <button class="absolute top-4 right-4 text-brand-creamDim hover:text-brand-gold transition-colors" onclick="closeReservationModal()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      </button>
+
+      <span class="font-cinzel text-xs text-brand-gold tracking-[0.25em] uppercase block mb-1">TABLE CONCIERGE</span>
+      <h3 class="font-serif text-2xl sm:text-3xl text-brand-cream mb-2">Book Your Table in Donthanpalle</h3>
+      <p class="text-xs text-brand-creamMuted mb-6">Enjoy unhurried Nizami hospitality along the Shankarpalli highway.</p>
+
+      <form class="space-y-4" onsubmit="handleModalReservation(event)">
+        <div>
+          <label class="text-xs uppercase text-brand-creamDim tracking-wider block mb-1">Your Full Name</label>
+          <input id="modal-res-name" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" placeholder="Guest Name" required type="text"/>
+        </div>
+        <div>
+          <label class="text-xs uppercase text-brand-creamDim tracking-wider block mb-1">Phone Number</label>
+          <input id="modal-res-phone" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" placeholder="098765 43210" required type="tel"/>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Date</label>
+            <input id="modal-res-date" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" type="date" value="2026-10-07"/>
+          </div>
+          <div>
+            <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Party Size</label>
+            <select id="modal-res-guests" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Guests</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="text-xs text-brand-creamDim uppercase tracking-wider block mb-1">Sitting Time Slot</label>
+          <select id="modal-res-slot" class="w-full bg-[#11100E] border border-brand-gold/30 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold">
+            <option>Lunch Feast (12:00 PM – 3:30 PM)</option>
+            <option>Evening Snacks (4:30 PM – 6:30 PM)</option>
+            <option>Dinner (7:30 PM – 10:30 PM)</option>
+            <option>Late Night Dinner (10:30 PM – 12:00 AM)</option>
+          </select>
+        </div>
+
+        <button class="w-full py-3.5 bg-brand-gold text-brand-bg font-bold text-xs uppercase tracking-widest hover:bg-brand-cream transition-all mt-4 flex items-center justify-center gap-2" type="submit">
+          <span>Book Table on WhatsApp</span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.014.376-.101c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+        </button>
+      </form>
+
+      <div class="hidden mt-4 p-3 bg-emerald-950/40 border border-emerald-500/40 text-center text-xs text-emerald-300" id="modal-res-alert">
+        ✓ Table booking prepared and sent to WhatsApp (+91 97000 97444).
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DISH DETAIL MODAL ================= -->
+  <div class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4" id="dishModal">
+    <div class="sharp-card max-w-lg w-full border-brand-gold/40 relative shadow-2xl bg-[#141210] overflow-hidden">
+      <button class="absolute top-4 right-4 z-10 text-white bg-black/60 hover:text-brand-gold transition-colors p-1" onclick="closeDishModal()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+      </button>
+
+      <div class="relative h-60 w-full overflow-hidden">
+        <img id="dish-modal-img" alt="Dish preview" class="w-full h-full object-cover" src=""/>
+        <span class="absolute top-4 left-4 bg-brand-gold text-brand-bg text-[10px] font-bold tracking-widest px-3 py-1 uppercase" id="dish-modal-tag">Royal Specialty</span>
+      </div>
+
+      <div class="p-6">
+        <div class="flex justify-between items-baseline mb-2">
+          <h3 class="font-serif text-2xl text-brand-cream" id="dish-modal-title">Dish Title</h3>
+          <span class="font-serif text-xl text-brand-gold font-bold" id="dish-modal-price">₹0</span>
+        </div>
+        <p class="text-xs text-brand-creamDim uppercase tracking-wider mb-3 font-mono" id="dish-modal-dietary">Dietary info</p>
+        <p class="text-sm text-brand-creamMuted font-light leading-relaxed mb-6" id="dish-modal-desc">
+          Description
+        </p>
+        
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+          <span class="text-xs text-brand-gold font-mono" id="dish-modal-portion">Serving Size</span>
+          <button class="bg-brand-gold text-brand-bg hover:bg-brand-cream text-xs font-bold px-6 py-3 uppercase tracking-wider transition-all" id="dish-modal-add-btn">
+            + Add to Tasting Slate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MASTER FOOTER ================= -->
+  <footer class="bg-brand-surface border-t border-brand-gold/25 py-16 px-4 sm:px-8 lg:px-12 relative z-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      
+      <!-- Col 1: Brand & Philosophy -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden border border-brand-gold/50 bg-[#11100E] flex items-center justify-center">
+            <img src="images/logo.png" alt="Aroma of Jasmine Logo" class="w-full h-full object-cover rounded-full" onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"/>
+            <svg class="hidden w-full h-full fill-none stroke-brand-gold p-1" stroke-width="3" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" opacity="0.6" r="44" stroke="#C9A45C" stroke-dasharray="2 3" stroke-width="1.5"></circle>
+              <path d="M50 18 C56 30 65 38 78 40 C65 44 56 52 50 64 C44 52 35 44 22 40 C35 38 44 30 50 18 Z" fill="#C9A45C" fill-opacity="0.3"></path>
+              <circle cx="50" cy="42" fill="#FFEAA7" r="4.5"></circle>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-serif text-xl font-bold text-white">Aroma of Jasmine</h4>
+            <span class="font-cinzel text-[10px] tracking-widest text-brand-gold uppercase">Donthanpalle Gastronomy</span>
+          </div>
+        </div>
+        <p class="text-xs text-brand-creamMuted font-light leading-relaxed mb-6">
+          An evening salon of elevated Nizami gastronomy and refined culinary traditions in Hyderabad. Defined by smoked crystal, live flame, and time-honored spice craft.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-brand-gold">
+          <span>FOLLOW OUR JOURNEY:</span>
+          <a class="hover:text-white transition-colors" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> • 
+          <a class="hover:text-white transition-colors" href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+
+      <!-- Col 2: Timings & Location -->
+      <div>
+        <h5 class="font-serif text-lg text-white mb-4 border-b border-white/10 pb-2">Sanctuary & Hours</h5>
+        <div class="space-y-3 text-xs text-brand-creamMuted">
+          <p><strong class="text-brand-gold block uppercase tracking-wider text-[11px]">Lunch & Dinner Dining:</strong> Daily: 11:30 AM – 11:00 PM<br/>(Kitchen closes at 10:30 PM)</p>
+          <p><strong class="text-brand-gold block uppercase tracking-wider text-[11px]">Highway Curbside Parcel:</strong> Daily: 11:30 AM – 11:00 PM</p>
+          <p><strong class="text-brand-gold block uppercase tracking-wider text-[11px]">Location:</strong> Shankarpalli – Hyderabad Road, Near IBS Donthanpalle, Telangana 501203</p>
+        </div>
+      </div>
+
+      <!-- Col 3: Navigation Links -->
+      <div>
+        <h5 class="font-serif text-lg text-white mb-4 border-b border-white/10 pb-2">The Salon</h5>
+        <ul class="space-y-2.5 text-xs text-brand-creamMuted">
+          <li><a class="hover:text-brand-gold transition-colors" href="javascript:void(0)" onclick="switchTab('home')">The Grand Experience</a></li>
+          <li><a class="hover:text-brand-gold transition-colors" href="javascript:void(0)" onclick="switchTab('menu')">Culinary Menu (116 Items)</a></li>
+          <li><a class="hover:text-brand-gold transition-colors" href="javascript:void(0)" onclick="switchTab('home')">Culinary Ethos & Architecture</a></li>
+          <li><a class="hover:text-brand-gold transition-colors" href="javascript:void(0)" onclick="switchTab('visit')">Table Concierge & Directions</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter & Privilege Circle -->
+      <div>
+        <h5 class="font-serif text-lg text-white mb-4 border-b border-white/10 pb-2">The Privilege Circle</h5>
+        <p class="text-xs text-brand-creamMuted mb-4 font-light">
+          Receive seasonal table invitations, vintage tastings, and royal chef previews.
+        </p>
+        <form class="space-y-2" onsubmit="event.preventDefault(); alert('Honored guest: You have been welcomed to the Aroma of Jasmine Privilege Circle.');">
+          <input class="w-full bg-[#11100E] border border-brand-gold/30 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold" placeholder="Enter your email" required type="email"/>
+          <button class="w-full bg-brand-gold hover:bg-brand-cream text-brand-bg text-xs font-bold py-2.5 transition-colors uppercase tracking-wider" type="submit">
+            Join The Circle
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-10 mt-10 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-creamDim gap-4">
+      <span>© 2026 Aroma of Jasmine. All rights reserved. Shankarpalli Road, Donthanpalle, Telangana.</span>
+      <div class="flex gap-4">
+        <span>Terms of Hospitality</span>
+        <span>Privacy Policy</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING QUICK ACTION BAR (MOBILE) ================= -->
+  <aside aria-label="Quick mobile dining bar" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#161411]/95 backdrop-blur-md border-t border-brand-gold/30 px-4 py-2.5 flex items-center justify-between">
+    <button class="flex flex-col items-center gap-0.5 text-brand-creamMuted hover:text-brand-gold text-[10px] uppercase font-semibold" onclick="switchTab('menu')">
+      <span>📜</span>
+      <span>Menu</span>
+    </button>
+    <button class="flex flex-col items-center gap-0.5 text-brand-creamMuted hover:text-brand-gold text-[10px] uppercase font-semibold" onclick="openReservationModal()">
+      <span>🪑</span>
+      <span>Reserve</span>
+    </button>
+    <button class="flex flex-col items-center gap-0.5 text-brand-gold text-[10px] uppercase font-semibold relative" onclick="toggleSlateDrawer()">
+      <span>🏺</span>
+      <span>Slate (<span id="mobile-cart-count">0</span>)</span>
+    </button>
+    <a class="flex flex-col items-center gap-0.5 text-brand-creamMuted hover:text-brand-gold text-[10px] uppercase font-semibold" href="tel:09700097444">
+      <span>📞</span>
+      <span>Call</span>
+    </a>
+  </aside>
+
+  <!-- ================= JAVASCRIPT: LOGIC, MENU CATALOG, CART, AND CANVAS ================= -->
+  <script>
+    // ---------------------------------------------------------------
+    // 1. Master Menu Catalog Data (116 Items: Biryanis, Starters, Curries, Rotis)
+    const menuCatalog = [
+    {
+        "id": "vs-1",
+        "name": "Veg Manchurian",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Plate",
+        "desc": "Crisp minced vegetable dumplings tossed in an aromatic Indo-Chinese garlic, ginger, and soy reduction with fresh scallions.",
+        "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=700&q=80",
+        "badge": "Indo-Chinese Classic",
+        "isSignature": false
+    },
+    {
+        "id": "vs-2",
+        "name": "Veg 65",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Crisp spiced vegetable florets flash-fried and tossed with sizzling curry leaves, green chillies, and crushed pepper.",
+        "image": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spiced & Crispy",
+        "isSignature": false
+    },
+    {
+        "id": "vs-3",
+        "name": "Gobi Manchuria",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Plate",
+        "desc": "Batter-crusted cauliflower florets tossed in savoury garlic-soya sauce with ginger and chopped coriander.",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Crispy Wok Favorite",
+        "isSignature": false
+    },
+    {
+        "id": "vs-4",
+        "name": "Gobi 65",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Crunchy spiced cauliflower bites tossed with sizzling mustard seeds, crackling curry leaves, and spicy red masala.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Crunch",
+        "isSignature": false
+    },
+    {
+        "id": "vs-5",
+        "name": "Chilli Gobi",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 209,
+        "portion": "Standard Plate",
+        "desc": "Crisp cauliflower florets wok-tossed with fresh bell peppers, diced onions, and piquant red chilli glaze.",
+        "image": "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=700&q=80",
+        "badge": "Fiery Wok",
+        "isSignature": false
+    },
+    {
+        "id": "vs-6",
+        "name": "Baby Corn Manchuria",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 229,
+        "portion": "Standard Plate",
+        "desc": "Golden fried tender baby corn batons glazed in rich garlic-soy Manchurian sauce with scallions.",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80",
+        "badge": "Sweet & Savoury",
+        "isSignature": false
+    },
+    {
+        "id": "vs-7",
+        "name": "Baby Corn 65",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 239,
+        "portion": "Standard Plate",
+        "desc": "Tender baby corn fingers battered and tossed in South Indian 65 tempered spice curd and curry leaves.",
+        "image": "https://images.unsplash.com/photo-1621996346565-e3d5d62810eb?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chef Special",
+        "isSignature": false
+    },
+    {
+        "id": "vs-8",
+        "name": "Chilli Babycorn",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 269,
+        "portion": "Standard Plate",
+        "desc": "Crispy baby corn stir-fried over high flame with crunchy capsicum, sliced onions, and dark chilli garlic sauce.",
+        "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Crunch",
+        "isSignature": false
+    },
+    {
+        "id": "vs-9",
+        "name": "Paneer Manchuria",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 219,
+        "portion": "Standard Plate",
+        "desc": "Fresh cottage cheese cubes lightly fried and tossed in savoury garlic, ginger, and soy sauce glaze.",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Melt-In-Mouth",
+        "isSignature": false
+    },
+    {
+        "id": "vs-10",
+        "name": "Chilli Paneer",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 239,
+        "portion": "Standard Plate",
+        "desc": "Prime paneer cubes wok-tossed with colourful bell peppers, onions, green chillies, and tangy soy sauce.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Bestseller",
+        "isSignature": true
+    },
+    {
+        "id": "vs-11",
+        "name": "Kaju Roast",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 259,
+        "portion": "Standard Plate",
+        "desc": "Premium whole cashew nuts slow-roasted in pure ghee with freshly cracked black pepper and curry leaves.",
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rich & Royal",
+        "isSignature": true
+    },
+    {
+        "id": "vs-12",
+        "name": "French Fries",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 159,
+        "portion": "Standard Plate",
+        "desc": "Golden fried crispy potato fingers lightly seasoned with fine salt and subtle chef spices.",
+        "image": "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=700&q=80",
+        "badge": "Classic Snack",
+        "isSignature": false
+    },
+    {
+        "id": "vs-13",
+        "name": "Onion Rings",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 209,
+        "portion": "Standard Plate",
+        "desc": "Crispy golden-crumbed sweet onion rings dusted with peri-peri seasoning and fine herbs.",
+        "image": "https://images.unsplash.com/photo-1639024471287-035213755338?auto=format&fit=crop&w=700&q=80",
+        "badge": "Golden Crispy",
+        "isSignature": false
+    },
+    {
+        "id": "vs-14",
+        "name": "Crispy Corn",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 229,
+        "portion": "Standard Plate",
+        "desc": "Tender American sweet corn kernels flash-fried until crackling crisp, tossed with pepper and chopped scallions.",
+        "image": "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=700&q=80",
+        "badge": "Crowd Favorite",
+        "isSignature": true
+    },
+    {
+        "id": "vs-15",
+        "name": "Paneer 65",
+        "category": "veg-starter",
+        "diet": "veg",
+        "price": 309,
+        "portion": "Standard Plate",
+        "desc": "Succulent paneer cubes marinated in fiery red spices and yoghurt, tempered with crackling curry leaves.",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Signature",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-1",
+        "name": "Chicken Manchuria",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 279,
+        "portion": "Standard Plate",
+        "desc": "Crispy tender chicken morsels tossed in an irresistible Indo-Chinese garlic, ginger, and scallion sauce.",
+        "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=700&q=80",
+        "badge": "Indo-Chinese Classic",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-2",
+        "name": "Chilli Chicken",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 299,
+        "portion": "Standard Plate",
+        "desc": "Boneless chicken bites tossed with fresh green chillies, diced capsicum, onions, and rich spicy soya sauce.",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80",
+        "badge": "All-Time Favorite",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-3",
+        "name": "Chicken Majestic",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Plate",
+        "desc": "Hyderabadi cult classic. Tender boneless chicken strips fried crisp and tossed in spiced curd, mint, and green chillies.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "⭐ House Star Specialty",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-4",
+        "name": "Chicken 65",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 289,
+        "portion": "Standard Plate",
+        "desc": "Legendary South Indian fried chicken tossed with whole red chillies, crackling curry leaves, and garlic yoghurt sauce.",
+        "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy & Tangy",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-5",
+        "name": "Pepper Chicken",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 279,
+        "portion": "Standard Plate",
+        "desc": "Juicy chicken pieces wok-roasted with coarsely cracked Malabar black pepper, caramelized onions, and curry leaves.",
+        "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=700&q=80",
+        "badge": "Black Pepper Roast",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-6",
+        "name": "Chicken Chips",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 279,
+        "portion": "Standard Plate",
+        "desc": "Crispy thin chicken ribbons seasoned with fiery house masala blend. Ultra crunchy and addictively flavorful.",
+        "image": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80",
+        "badge": "Extra Crispy",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-7",
+        "name": "Dragon Chicken",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 299,
+        "portion": "Standard Plate",
+        "desc": "Crisp chicken batons tossed in a spicy-sweet fiery Sichuan chilli glaze with roasted cashews and julienned peppers.",
+        "image": "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=700&q=80",
+        "badge": "Fiery Dragon Glaze",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-8",
+        "name": "Chicken 555",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 309,
+        "portion": "Standard Plate",
+        "desc": "Crispy fried chicken fingers tossed in a creamy, tangy and spicy sauce garnished with crispy fried garlic and cashews.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Specialty Creation",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-9",
+        "name": "Butter Garlic Chicken",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Plate",
+        "desc": "Tender chicken morsels sauteed in rich golden butter, toasted garlic slivers, and mild aromatic green herbs.",
+        "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rich Butter Garlic",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-10",
+        "name": "Kaju Nuts Chicken",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Plate",
+        "desc": "Succulent chicken bites tossed with whole crunchy golden cashews, curry leaves, and dry Deccan spices.",
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",
+        "badge": "Royal Cashew Sizzle",
+        "isSignature": true
+    },
+    {
+        "id": "nvs-11",
+        "name": "Chicken Lollipop",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 329,
+        "portion": "Standard Plate (6 Pcs)",
+        "desc": "Crispy Frenched chicken wings tossed or served with tangy hot Schezwan dipping sauce.",
+        "image": "https://images.unsplash.com/photo-1527477378408-1bc0e6a9ce0c?auto=format&fit=crop&w=700&q=80",
+        "badge": "Party Classic",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-12",
+        "name": "Egg Omelette",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 59,
+        "portion": "Double Egg",
+        "desc": "Fresh double farm eggs whipped with finely chopped onions, green chillies, coriander, and black pepper.",
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Homestyle Fresh",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-13",
+        "name": "Chicken Drumstick",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 349,
+        "portion": "Standard Plate",
+        "desc": "Juicy chicken drumsticks marinated in special spices and fried to golden crisp perfection.",
+        "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=700&q=80",
+        "badge": "Crisp Drumstick",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-14",
+        "name": "Egg Manchuria",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Crisp batter-coated boiled egg chunks tossed in savory garlic, ginger, and spring onion Manchurian sauce.",
+        "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=700&q=80",
+        "badge": "Indo-Chinese Egg",
+        "isSignature": false
+    },
+    {
+        "id": "nvs-15",
+        "name": "Chilli Egg",
+        "category": "nonveg-starter",
+        "diet": "nonveg",
+        "price": 209,
+        "portion": "Standard Plate",
+        "desc": "Fried egg pieces wok-tossed with spicy green chillies, bell peppers, onions, and zesty soya sauce.",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Wok Egg",
+        "isSignature": false
+    },
+    {
+        "id": "vc-1",
+        "name": "Mix Veg Curry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Bowl",
+        "desc": "Fresh garden vegetables simmered in an aromatic onion, tomato, and ground cumin masala gravy.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Garden Fresh",
+        "isSignature": false
+    },
+    {
+        "id": "vc-2",
+        "name": "Paneer Butter Masala",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 269,
+        "portion": "Standard Bowl",
+        "desc": "Fresh soft paneer cubes cooked in a silky, rich buttery tomato cream sauce with fragrant kasuri methi.",
+        "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80",
+        "badge": "Royal Bestseller",
+        "isSignature": true
+    },
+    {
+        "id": "vc-3",
+        "name": "Kadai Paneer",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Cottage cheese and crisp bell peppers tossed in a robust wok with freshly roasted and pounded coriander-chilli masala.",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spiced Kadai Masala",
+        "isSignature": false
+    },
+    {
+        "id": "vc-4",
+        "name": "Hyderabad Paneer Curry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Nizami courtly specialty. Paneer cooked in a velvety cashew, poppy seed, and fragrant cardamon gravy.",
+        "image": "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=700&q=80",
+        "badge": "Nizami Special",
+        "isSignature": true
+    },
+    {
+        "id": "vc-5",
+        "name": "Telangana Paneer Curry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 279,
+        "portion": "Standard Bowl",
+        "desc": "Rustic Deccan preparation. Soft paneer cubes cooked in fiery Warangal stone-ground spices and shallots.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Fiery Telangana",
+        "isSignature": true
+    },
+    {
+        "id": "vc-6",
+        "name": "Kaju Paneer",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 319,
+        "portion": "Standard Bowl",
+        "desc": "Whole roasted cashews and velvety paneer simmered together in an opulent, rich creamy gravy.",
+        "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rich & Indulgent",
+        "isSignature": true
+    },
+    {
+        "id": "vc-7",
+        "name": "Kaju Curry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Generous whole cashew nuts roasted in pure ghee and slow-cooked in a rich Mughlai spiced onion-tomato cream reduction.",
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",
+        "badge": "Royal Cashew Feast",
+        "isSignature": true
+    },
+    {
+        "id": "vc-8",
+        "name": "Alu Gobi",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Bowl",
+        "desc": "Homestyle tender potatoes and cauliflower florets gently spiced with cumin, turmeric, ginger, and fresh cilantro.",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Comfort Classic",
+        "isSignature": false
+    },
+    {
+        "id": "vc-9",
+        "name": "Kadhai Veg",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Bowl",
+        "desc": "Farm vegetables and crunchy bell peppers tossed in a traditional iron kadai with crushed whole spices and tomato reduction.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Kadai Spiced",
+        "isSignature": false
+    },
+    {
+        "id": "vc-10",
+        "name": "Kadai Mushroom",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 259,
+        "portion": "Standard Bowl",
+        "desc": "Fresh button mushrooms wok-tossed with capsicum, sliced onions, and freshly ground roasted kadai spices.",
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Earthy & Savoury",
+        "isSignature": false
+    },
+    {
+        "id": "vc-11",
+        "name": "Palak Paneer",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 279,
+        "portion": "Standard Bowl",
+        "desc": "Cottage cheese cubes bathed in a velvety puree of farm spinach, tempered with garlic, cumin, and fresh cream.",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80",
+        "badge": "Wholesome Greens",
+        "isSignature": false
+    },
+    {
+        "id": "vc-12",
+        "name": "Methi Cheman",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Kashmiri delicacy of fried paneer cubes gently cooked in a delicate fresh fenugreek leaf and spiced yoghurt gravy.",
+        "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80",
+        "badge": "Aromatic Herb Special",
+        "isSignature": false
+    },
+    {
+        "id": "vc-13",
+        "name": "Dal Fry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 169,
+        "portion": "Standard Bowl",
+        "desc": "Yellow toor lentils cooked to comforting perfection and tempered with ghee, cumin seeds, garlic, and fresh green chillies.",
+        "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Homestyle Comfort",
+        "isSignature": false
+    },
+    {
+        "id": "vc-14",
+        "name": "Dal Makhani",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 259,
+        "portion": "Standard Bowl",
+        "desc": "Whole black lentils and red kidney beans slow-simmered overnight over charcoal embers with butter, cream, and plum tomatoes.",
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Slow-Simmered Favorite",
+        "isSignature": true
+    },
+    {
+        "id": "vc-15",
+        "name": "Dal Tadka",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Bowl",
+        "desc": "Yellow lentils finished with a sizzling double tadka of pure desi ghee, whole dry red chillies, hing, and fried garlic.",
+        "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Sizzling Tadka",
+        "isSignature": false
+    },
+    {
+        "id": "vc-16",
+        "name": "Aloo Jeera Fry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 159,
+        "portion": "Standard Bowl",
+        "desc": "Diced baby potatoes pan-roasted with fragrant whole roasted cumin seeds, turmeric, and fresh green coriander.",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Aromatic Cumin Roast",
+        "isSignature": false
+    },
+    {
+        "id": "vc-17",
+        "name": "Dal Butter Fry",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Bowl",
+        "desc": "Golden yellow lentils enriched with a generous swirl of churned butter, browned onions, and roasted spices.",
+        "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rich Butter Tadka",
+        "isSignature": false
+    },
+    {
+        "id": "vc-18",
+        "name": "Gobi Masala",
+        "category": "veg-curry",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Bowl",
+        "desc": "Fresh cauliflower florets simmered in a thick, hearty onion-tomato gravy with ginger, garlic, and garam masala.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spiced Gobi Masala",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-1",
+        "name": "Dum Ka Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 329,
+        "portion": "Standard Bowl",
+        "desc": "Hyderabadi royal preparation. Marinated chicken slow-cooked under dough seal with cashews, fried onions, and poppy paste.",
+        "image": "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=700&q=80",
+        "badge": "Slow Dum Classic",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-2",
+        "name": "Butter Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 309,
+        "portion": "Standard Bowl",
+        "desc": "Tender tandoori chicken pieces simmered in a silky, rich makhani tomato butter cream gravy scented with kasuri methi.",
+        "image": "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=700&q=80",
+        "badge": "Makhani Special",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-3",
+        "name": "Kadai Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Bowl",
+        "desc": "Juicy chicken pieces wok-tossed with fresh capsicum, diced onions, and freshly ground roasted kadai spices.",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spiced Kadai",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-4",
+        "name": "Telangana Chicken Curry",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Authentic rustic countryside chicken curry cooked in stone-ground fiery Warangal red chillies and caramelized shallots.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rustic Deccan",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-5",
+        "name": "Andhra Chicken Curry",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 289,
+        "portion": "Standard Bowl",
+        "desc": "Spicy coastal Andhra style chicken curry simmered with poppy seeds, roasted coriander, and pungent green chillies.",
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Coastal Andhra Spice",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-6",
+        "name": "Afghani Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Bowl",
+        "desc": "Succulent chicken cooked in a mild, velvety cashew-almond cream gravy scented with roasted kasuri methi and green cardamom.",
+        "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80",
+        "badge": "Mild & Creamy",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-7",
+        "name": "Patiala Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 369,
+        "portion": "Standard Bowl",
+        "desc": "Royal Punjabi specialty. Juicy chicken pieces cooked in a rich, double-layered spiced egg and creamy Mughlai gravy.",
+        "image": "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=700&q=80",
+        "badge": "Royal Patiala Feast",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-8",
+        "name": "Kaju Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 349,
+        "portion": "Standard Bowl",
+        "desc": "Tender chicken simmered with generous whole roasted cashew nuts in a luxurious, creamy spiced reduction.",
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",
+        "badge": "Roasted Cashew Rich",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-9",
+        "name": "Ginger Chicken",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 329,
+        "portion": "Standard Bowl",
+        "desc": "Tender chicken morsels sauteed in a zesty, aromatic fresh ginger reduction with caramelized onions and green chillies.",
+        "image": "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=700&q=80",
+        "badge": "Zesty Ginger Gravy",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-10",
+        "name": "Chicken Masala",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 309,
+        "portion": "Standard Bowl",
+        "desc": "Traditional homestyle chicken curry cooked with browned onions, ripe tomatoes, and house garam masala blend.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Homestyle Classic",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-11",
+        "name": "Chicken Fry",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 379,
+        "portion": "Standard Bowl",
+        "desc": "Semi-dry succulent bone-in chicken slow-roasted in desi ghee with crackling curry leaves and crushed black pepper.",
+        "image": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80",
+        "badge": "Desi Ghee Roast",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-12",
+        "name": "Mutton Masala",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 399,
+        "portion": "Standard Bowl",
+        "desc": "Tender mutton pieces slow-cooked in a robust, deeply aromatic onion-tomato gravy with courtly whole spices.",
+        "image": "https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=700&q=80",
+        "badge": "Slow-Cooked Mutton",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-13",
+        "name": "Mutton Fry",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 409,
+        "portion": "Standard Bowl",
+        "desc": "Hyderabadi Tala Hua Gosht style tender mutton cubes pan-roasted crisp with green chillies, curry leaves, and spices.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Tala Hua Gosht Style",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-14",
+        "name": "Mutton Rogan Josh",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 389,
+        "portion": "Standard Bowl",
+        "desc": "Kashmiri delicacy. Tender mutton morsels slow-braised in an aromatic gravy of Kashmiri red chillies, fennel, and mace.",
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Kashmiri Special",
+        "isSignature": true
+    },
+    {
+        "id": "nvc-15",
+        "name": "Egg Curry",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 149,
+        "portion": "Standard Bowl",
+        "desc": "Golden pan-fried hard-boiled eggs simmered in a spiced tomato and onion gravy with fresh coriander.",
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Comfort Egg Gravy",
+        "isSignature": false
+    },
+    {
+        "id": "nvc-16",
+        "name": "Egg Masala",
+        "category": "nonveg-curry",
+        "diet": "nonveg",
+        "price": 159,
+        "portion": "Standard Bowl",
+        "desc": "Boiled eggs tossed in a thick, hearty masala gravy flavored with roasted cumin, ginger, and green chillies.",
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Thick Masala Gravy",
+        "isSignature": false
+    },
+    {
+        "id": "bread-1",
+        "name": "Tandoori Roti",
+        "category": "bread",
+        "diet": "veg",
+        "price": 25,
+        "portion": "1 Piece",
+        "desc": "Traditional whole wheat flatbread charred crisp and golden in the clay tandoor.",
+        "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80",
+        "badge": "Clay Tandoor",
+        "isSignature": false
+    },
+    {
+        "id": "bread-2",
+        "name": "Butter Roti",
+        "category": "bread",
+        "diet": "veg",
+        "price": 30,
+        "portion": "1 Piece",
+        "desc": "Whole wheat tandoori roti generously brushed with rich churned dairy butter.",
+        "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80",
+        "badge": "Butter Glazed",
+        "isSignature": false
+    },
+    {
+        "id": "bread-3",
+        "name": "Phulka",
+        "category": "bread",
+        "diet": "veg",
+        "price": 20,
+        "portion": "1 Piece",
+        "desc": "Homestyle puffed whole wheat phulka roasted over open flame until pillowy soft.",
+        "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80",
+        "badge": "Homestyle Soft",
+        "isSignature": false
+    },
+    {
+        "id": "bread-4",
+        "name": "Plain Naan",
+        "category": "bread",
+        "diet": "veg",
+        "price": 35,
+        "portion": "1 Piece",
+        "desc": "Classic leavened refined flour flatbread baked on tandoor clay walls with crisp charred bubbles.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Tandoori Baked",
+        "isSignature": false
+    },
+    {
+        "id": "bread-5",
+        "name": "Butter Naan",
+        "category": "bread",
+        "diet": "veg",
+        "price": 50,
+        "portion": "1 Piece",
+        "desc": "Flaky layered tandoori naan brushed generously with melted golden butter.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Rich & Flaky",
+        "isSignature": true
+    },
+    {
+        "id": "bread-6",
+        "name": "Garlic Naan",
+        "category": "bread",
+        "diet": "veg",
+        "price": 60,
+        "portion": "1 Piece",
+        "desc": "Tandoori naan topped with aromatic minced roasted garlic slivers, butter, and chopped cilantro.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Roasted Garlic",
+        "isSignature": true
+    },
+    {
+        "id": "bread-7",
+        "name": "Chilly Garlic Naan",
+        "category": "bread",
+        "diet": "veg",
+        "price": 65,
+        "portion": "1 Piece",
+        "desc": "Spicy signature naan studded with finely chopped hot green chillies, roasted garlic, and melted butter.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy & Aromatic",
+        "isSignature": true
+    },
+    {
+        "id": "bread-8",
+        "name": "Kothimeera Naan",
+        "category": "bread",
+        "diet": "veg",
+        "price": 60,
+        "portion": "1 Piece",
+        "desc": "Fragrant tandoor-baked naan loaded with fresh coriander leaves (kothimeera) and golden butter.",
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80",
+        "badge": "Fresh Coriander",
+        "isSignature": false
+    },
+    {
+        "id": "rice-1",
+        "name": "Veg Pulao",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Portion",
+        "desc": "Fragrant basmati rice gently spiced and cooked with seasonal garden vegetables, whole cloves, and mint.",
+        "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Aromatic Pulao",
+        "isSignature": false
+    },
+    {
+        "id": "rice-2",
+        "name": "Veg Biryani",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 169,
+        "portion": "Standard Portion",
+        "desc": "Classic layered vegetable dum biryani slow-cooked with basmati rice, saffron ghee, and whole spices.",
+        "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=700&q=80",
+        "badge": "Slow Dum Veg",
+        "isSignature": true
+    },
+    {
+        "id": "rice-3",
+        "name": "Paneer Biryani",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 249,
+        "portion": "Standard Portion",
+        "desc": "Marinated tender paneer cubes layered with aromatic saffron basmati rice, fried onions, and fresh mint.",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Paneer Special",
+        "isSignature": true
+    },
+    {
+        "id": "rice-4",
+        "name": "Kaju Biryani",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 289,
+        "portion": "Standard Portion",
+        "desc": "Generous golden roasted whole cashew nuts layered with royal spiced basmati rice and pure desi ghee.",
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=700&q=80",
+        "badge": "Royal Cashew Dum",
+        "isSignature": true
+    },
+    {
+        "id": "rice-5",
+        "name": "Kaju Paneer Biryani",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 299,
+        "portion": "Standard Portion",
+        "desc": "The ultimate vegetarian royal feast. Crisp golden cashews and succulent paneer cubes layered with aromatic spiced rice.",
+        "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chef Crown Feast",
+        "isSignature": true
+    },
+    {
+        "id": "rice-6",
+        "name": "Mushroom Biryani",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 269,
+        "portion": "Standard Portion",
+        "desc": "Fresh button mushrooms cooked in spiced yoghurt marinade and slow-steamed with fragrant basmati.",
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80",
+        "badge": "Earthy & Spiced",
+        "isSignature": false
+    },
+    {
+        "id": "rice-7",
+        "name": "Curd Rice",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 119,
+        "portion": "Standard Bowl",
+        "desc": "Cooling South Indian style tempered curd rice with mustard seeds, curry leaves, ginger, and pomegranate pearls.",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80",
+        "badge": "Cooling Classic",
+        "isSignature": false
+    },
+    {
+        "id": "rice-8",
+        "name": "Plain Rice (Basmathi)",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 129,
+        "portion": "Standard Bowl",
+        "desc": "Steaming hot long-grain aged Dehraduni basmati rice, tender and fluffy.",
+        "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=700&q=80",
+        "badge": "Aged Basmati",
+        "isSignature": false
+    },
+    {
+        "id": "rice-9",
+        "name": "Tomato Rice",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 119,
+        "portion": "Standard Bowl",
+        "desc": "Tangy and flavorful rice tempered with ripe country tomatoes, mustard seeds, curry leaves, and green chillies.",
+        "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=700&q=80",
+        "badge": "Tangy South Indian",
+        "isSignature": false
+    },
+    {
+        "id": "rice-11",
+        "name": "Plain Curd",
+        "category": "biryani",
+        "diet": "veg",
+        "price": 50,
+        "portion": "Standard Cup",
+        "desc": "Fresh, thick and creamy chilled homemade dairy curd.",
+        "image": "https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=700&q=80",
+        "badge": "Fresh Dairy",
+        "isSignature": false
+    },
+    {
+        "id": "rice-12",
+        "name": "Egg Biryani (Single)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 159,
+        "portion": "Single Portion",
+        "desc": "Spiced golden boiled eggs layered with rich aromatic dum biryani basmati rice, served with salan and raita.",
+        "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Single Biryani",
+        "isSignature": false
+    },
+    {
+        "id": "rice-13",
+        "name": "Chicken Dum Biryani (Single)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 179,
+        "portion": "Single Portion",
+        "desc": "Authentic Hyderabadi chicken dum biryani slow-cooked with basmati rice, tender chicken, and royal spices.",
+        "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Single Biryani",
+        "isSignature": true
+    },
+    {
+        "id": "rice-14",
+        "name": "Mutton Biryani (Single)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 229,
+        "portion": "Single Portion",
+        "desc": "Tender marinated mutton pieces slow-cooked with fragrant saffron basmati rice in sealed handi.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Single Biryani",
+        "isSignature": true
+    },
+    {
+        "id": "rice-15",
+        "name": "Chicken Dum Biryani (Family)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 669,
+        "portion": "Family Pack",
+        "desc": "Hyderabadi chicken dum biryani in a generous family-size handi, served with mirchi ka salan and raita.",
+        "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Family Pack",
+        "isSignature": true
+    },
+    {
+        "id": "rice-16",
+        "name": "Mutton Biryani (Family)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 759,
+        "portion": "Family Pack",
+        "desc": "Tender marinated mutton slow-cooked with saffron basmati in a family-size sealed handi, with salan and raita.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Family Pack",
+        "isSignature": true
+    },
+    {
+        "id": "rice-17",
+        "name": "Chicken Dum Biryani (Jumbo)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 829,
+        "portion": "Jumbo Pack",
+        "desc": "Our biggest chicken dum biryani handi — made for large groups and celebrations, with salan and raita.",
+        "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80",
+        "badge": "Jumbo Pack",
+        "isSignature": true
+    },
+    {
+        "id": "rice-18",
+        "name": "Mutton Biryani (Jumbo)",
+        "category": "biryani",
+        "diet": "nonveg",
+        "price": 1049,
+        "portion": "Jumbo Pack",
+        "desc": "Jumbo handi of slow-dum mutton biryani with saffron basmati — ideal for big gatherings, with salan and raita.",
+        "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80",
+        "badge": "Jumbo Pack",
+        "isSignature": true
+    },
+    {
+        "id": "fr-1",
+        "name": "Veg Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 189,
+        "portion": "Standard Plate",
+        "desc": "Wok-tossed basmati rice with finely chopped carrots, beans, cabbage, and spring onions in light soy.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Indo-Chinese Wok",
+        "isSignature": true
+    },
+    {
+        "id": "fr-2",
+        "name": "Schezwan Veg Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Fiery fried rice tossed with house Schezwan chilli sauce, crunchy vegetables, and scallions.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": false
+    },
+    {
+        "id": "fr-3",
+        "name": "Mix Veg Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 209,
+        "portion": "Standard Plate",
+        "desc": "Loaded fried rice with a generous mix of garden vegetables, baby corn, mushroom, and paneer bits.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Loaded Veggies",
+        "isSignature": false
+    },
+    {
+        "id": "fr-4",
+        "name": "Veg Manchurian Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Veg fried rice topped and tossed with crisp vegetable Manchurian balls in garlic-soy glaze.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Manchurian Combo",
+        "isSignature": false
+    },
+    {
+        "id": "fr-5",
+        "name": "Paneer Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 219,
+        "portion": "Standard Plate",
+        "desc": "High-flame wok fried rice tossed with golden paneer cubes, bell peppers, and spring onions.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Paneer Special",
+        "isSignature": true
+    },
+    {
+        "id": "fr-6",
+        "name": "Chilli Garlic Veg Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Plate",
+        "desc": "Fried rice tossed in sizzling burnt garlic, red chilli flakes, and crunchy vegetables.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Burnt Garlic",
+        "isSignature": false
+    },
+    {
+        "id": "fr-7",
+        "name": "Jeera Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 149,
+        "portion": "Standard Bowl",
+        "desc": "Long-grain basmati rice tossed with fragrant roasted cumin seeds in pure ghee and fresh coriander.",
+        "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=700&q=80",
+        "badge": "Cumin Tempered",
+        "isSignature": false
+    },
+    {
+        "id": "fr-8",
+        "name": "Kaju Fried Rice",
+        "category": "fried-rice",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Fragrant fried rice tossed with ghee-roasted whole cashews and finely diced vegetables.",
+        "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=700&q=80",
+        "badge": "Roasted Cashew",
+        "isSignature": false
+    },
+    {
+        "id": "fr-9",
+        "name": "Egg Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 179,
+        "portion": "Standard Plate",
+        "desc": "Wok-tossed basmati rice with scrambled farm eggs, spring onions, and light soy.",
+        "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80",
+        "badge": "Classic Egg Wok",
+        "isSignature": false
+    },
+    {
+        "id": "fr-10",
+        "name": "Schezwan Egg Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Egg fried rice tossed in fiery house Schezwan chilli sauce with crunchy vegetables.",
+        "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": false
+    },
+    {
+        "id": "fr-11",
+        "name": "Chicken Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 229,
+        "portion": "Standard Plate",
+        "desc": "High-flame fried rice with tender shredded chicken, egg, vegetables, and scallions.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chicken Wok Classic",
+        "isSignature": true
+    },
+    {
+        "id": "fr-12",
+        "name": "Schezwan Chicken Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 239,
+        "portion": "Standard Plate",
+        "desc": "Chicken fried rice tossed with spicy Schezwan sauce, garlic, and spring onions.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": false
+    },
+    {
+        "id": "fr-13",
+        "name": "Chilli Garlic Chicken Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 249,
+        "portion": "Standard Plate",
+        "desc": "Chicken fried rice tossed with sizzling garlic, red chilli flakes, and green chillies.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chilli Garlic",
+        "isSignature": false
+    },
+    {
+        "id": "fr-14",
+        "name": "Burnt Garlic Chicken Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 259,
+        "portion": "Standard Plate",
+        "desc": "Smoky fried rice with tender chicken and deep-golden burnt garlic, finished with scallions.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Burnt Garlic",
+        "isSignature": true
+    },
+    {
+        "id": "fr-15",
+        "name": "Non Veg Mix Fried Rice",
+        "category": "fried-rice",
+        "diet": "nonveg",
+        "price": 319,
+        "portion": "Standard Plate",
+        "desc": "Loaded fried rice with chicken, egg, and prawns tossed with vegetables in a savory wok sauce.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80",
+        "badge": "Loaded Mix",
+        "isSignature": true
+    },
+    {
+        "id": "nd-1",
+        "name": "Veg Soft Noodles",
+        "category": "noodles",
+        "diet": "veg",
+        "price": 149,
+        "portion": "Standard Plate",
+        "desc": "Soft wok-tossed noodles with julienned carrots, cabbage, capsicum, and spring onions in light soy.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Indo-Chinese Classic",
+        "isSignature": false
+    },
+    {
+        "id": "nd-2",
+        "name": "Schezwan Veg Noodles",
+        "category": "noodles",
+        "diet": "veg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Noodles tossed in fiery house Schezwan chilli sauce with crunchy vegetables and scallions.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": true
+    },
+    {
+        "id": "nd-3",
+        "name": "Chilli Garlic Veg Noodles",
+        "category": "noodles",
+        "diet": "veg",
+        "price": 179,
+        "portion": "Standard Plate",
+        "desc": "Noodles tossed with sizzling garlic, red chilli flakes, and crisp vegetables.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chilli Garlic",
+        "isSignature": false
+    },
+    {
+        "id": "nd-4",
+        "name": "Veg Hakka Noodles",
+        "category": "noodles",
+        "diet": "veg",
+        "price": 209,
+        "portion": "Standard Plate",
+        "desc": "Thin Hakka-style noodles stir-fried over high flame with shredded vegetables, vinegar, and soy.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Hakka Style",
+        "isSignature": true
+    },
+    {
+        "id": "nd-5",
+        "name": "Egg Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 159,
+        "portion": "Standard Plate",
+        "desc": "Soft wok-tossed noodles with scrambled farm eggs, vegetables, and spring onions.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Classic Egg Wok",
+        "isSignature": false
+    },
+    {
+        "id": "nd-6",
+        "name": "Schezwan Egg Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 169,
+        "portion": "Standard Plate",
+        "desc": "Egg noodles tossed in fiery house Schezwan chilli sauce with crunchy vegetables.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": false
+    },
+    {
+        "id": "nd-7",
+        "name": "Egg Hakka Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 199,
+        "portion": "Standard Plate",
+        "desc": "Thin Hakka-style noodles stir-fried with egg, shredded vegetables, vinegar, and soy.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Hakka Style",
+        "isSignature": false
+    },
+    {
+        "id": "nd-8",
+        "name": "Chicken Soft Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 189,
+        "portion": "Standard Plate",
+        "desc": "Soft noodles tossed with tender shredded chicken, egg, and vegetables in light soy.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Chicken Wok Classic",
+        "isSignature": true
+    },
+    {
+        "id": "nd-9",
+        "name": "Schezwan Chicken Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 239,
+        "portion": "Standard Plate",
+        "desc": "Chicken noodles tossed in spicy Schezwan sauce with garlic and spring onions.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Spicy Schezwan",
+        "isSignature": false
+    },
+    {
+        "id": "nd-10",
+        "name": "Burnt Garlic Chicken Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 229,
+        "portion": "Standard Plate",
+        "desc": "Smoky noodles with tender chicken and deep-golden burnt garlic, finished with scallions.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Burnt Garlic",
+        "isSignature": false
+    },
+    {
+        "id": "nd-11",
+        "name": "Chicken Hakka Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 239,
+        "portion": "Standard Plate",
+        "desc": "Hakka-style noodles stir-fried over high flame with chicken, shredded vegetables, and soy.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Hakka Style",
+        "isSignature": true
+    },
+    {
+        "id": "nd-12",
+        "name": "Mix Non Veg Hakka Noodles",
+        "category": "noodles",
+        "diet": "nonveg",
+        "price": 329,
+        "portion": "Standard Plate",
+        "desc": "Loaded Hakka noodles with chicken, egg, and prawns tossed with vegetables in a savory wok sauce.",
+        "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80",
+        "badge": "Loaded Mix",
+        "isSignature": true
+    }
+];
+
+    // ---------------------------------------------------------------
+    // 2. Navigation Tabs & Subpage Controller
+    // ---------------------------------------------------------------
+    const tabs = ['home', 'menu', 'visit'];
+
+    function switchTab(tabId) {
+      tabs.forEach(t => {
+        const sec = document.getElementById('tab-' + t);
+        const btn = document.getElementById('tab-btn-' + t);
+        if (t === tabId) {
+          sec.classList.add('active');
+          if (btn) {
+            btn.classList.add('bg-brand-gold', 'text-brand-bg', 'font-semibold');
+            btn.classList.remove('text-brand-creamMuted', 'hover:bg-white/5');
+          }
+        } else {
+          sec.classList.remove('active');
+          if (btn) {
+            btn.classList.remove('bg-brand-gold', 'text-brand-bg', 'font-semibold');
+            btn.classList.add('text-brand-creamMuted', 'hover:bg-white/5');
+          }
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileNav() {
+      const panel = document.getElementById('mobile-nav-panel');
+      panel.classList.toggle('hidden');
+    }
+
+    // ---------------------------------------------------------------
+    // 3. Menu Rendering, Filtering & Search
+    // ---------------------------------------------------------------
+    let currentCategory = 'all';
+
+    function renderMenuGrid(items) {
+      const container = document.getElementById('menu-items-grid');
+      if (!container) return;
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-16 text-brand-creamMuted">
+            <span class="text-4xl block mb-2 opacity-50">🔍</span>
+            <p class="font-serif text-lg">No dishes found matching your selection.</p>
+            <p class="text-xs text-brand-creamDim mt-1">Try resetting the search or choosing another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(item => {
+        const variantsHtml = item.variants ? `
+          <div class="flex gap-1.5 mt-2">
+            ${item.variants.map(v => `
+              <button onclick="event.stopPropagation(); addToSlate('${item.name} (${v.label})', ${v.price}, '${v.label}')" class="text-[10px] bg-brand-surface hover:bg-brand-gold hover:text-brand-bg border border-brand-gold/30 px-2 py-1 text-brand-cream transition-colors">
+                ${v.label} ₹${v.price}
+              </button>
+            `).join('')}
+          </div>
+        ` : '';
+
+        return `
+          <div class="sharp-card group flex flex-col justify-between overflow-hidden cursor-pointer" onclick="openDishDetailModal('${item.id}')">
+            <div>
+              <div class="relative h-48 img-zoom-container">
+                <img alt="${item.name}" class="w-full h-full object-cover" src="${item.image}"/>
+                <span class="absolute top-3 left-3 bg-[#11100E]/85 backdrop-blur-md text-[10px] font-bold tracking-wider px-2.5 py-1 text-brand-gold border border-brand-gold/30 uppercase">
+                  ${item.badge}
+                </span>
+                <span class="absolute bottom-3 right-3 bg-[#11100E]/90 text-brand-gold font-serif text-base font-bold px-3 py-1 border border-brand-gold/30">
+                  ₹${item.price}
+                </span>
+              </div>
+              <div class="p-5">
+                <h4 class="font-serif text-xl text-brand-cream group-hover:text-brand-gold transition-colors font-medium mb-1.5">
+                  ${item.name}
+                </h4>
+                <p class="text-xs text-brand-creamMuted font-light line-clamp-2 leading-relaxed">
+                  ${item.desc}
+                </p>
+              </div>
+            </div>
+
+            <div class="p-5 pt-0 border-t border-white/5 mt-3">
+              <div class="flex items-center justify-between pt-3">
+                <span class="text-[11px] text-brand-creamDim font-mono">${item.portion}</span>
+                <button onclick="event.stopPropagation(); addToSlate('${item.name}', ${item.price}, '${item.portion}')" class="bg-brand-gold hover:bg-brand-cream text-brand-bg text-xs font-bold px-3.5 py-1.5 uppercase tracking-wider transition-all">
+                  + Add
+                </button>
+              </div>
+              ${variantsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterMenuCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.menu-cat-btn').forEach(b => {
+        b.classList.remove('bg-brand-gold', 'text-brand-bg');
+        b.classList.add('bg-brand-surface', 'text-brand-creamMuted');
+      });
+      if (btn) {
+        btn.classList.add('bg-brand-gold', 'text-brand-bg');
+        btn.classList.remove('bg-brand-surface', 'text-brand-creamMuted');
+      }
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('menu-search-input').value.toLowerCase().trim();
+      const diet = document.getElementById('dietary-filter').value;
+
+      const filtered = menuCatalog.filter(item => {
+        const matchesCategory = (currentCategory === 'all' || item.category === currentCategory);
+        const matchesDiet = (diet === 'all' || item.diet === diet);
+        const matchesSearch = !q || item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+        return matchesCategory && matchesDiet && matchesSearch;
+      });
+
+      renderMenuGrid(filtered);
+    }
+
+    // ---------------------------------------------------------------
+    // 4. Tasting Slate (Order Cart Drawer & WhatsApp Direct Checkout)
+    // ---------------------------------------------------------------
+    let cart = [];
+
+    function toggleSlateDrawer() {
+      const drawer = document.getElementById('tasting-slate-drawer');
+      drawer.classList.toggle('translate-x-full');
+    }
+
+    function addToSlate(name, price, portion) {
+      const existing = cart.find(i => i.name === name && i.portion === portion);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, portion, qty: 1 });
+      }
+      renderSlate();
+
+      // Open drawer & animate badge
+      const drawer = document.getElementById('tasting-slate-drawer');
+      drawer.classList.remove('translate-x-full');
+      
+      const badge = document.getElementById('cart-badge-count');
+      badge.classList.add('scale-125');
+      setTimeout(() => badge.classList.remove('scale-125'), 300);
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderSlate();
+    }
+
+    function renderSlate() {
+      const container = document.getElementById('slate-items-list');
+      const countBadge = document.getElementById('cart-badge-count');
+      const mobileCount = document.getElementById('mobile-cart-count');
+      const subtotalEl = document.getElementById('slate-subtotal-price');
+      const whatsappBtn = document.getElementById('whatsapp-order-btn');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      countBadge.innerText = totalItems;
+      if (mobileCount) mobileCount.innerText = totalItems;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 text-brand-creamMuted">
+            <span class="text-4xl block mb-2 opacity-50">🍽️</span>
+            <p class="font-serif text-sm">Your tasting slate is currently empty.</p>
+            <p class="text-[11px] text-brand-creamDim mt-1">Select courses from The Grand Menu to curate your meal.</p>
+          </div>
+        `;
+        subtotalEl.innerText = '₹0';
+        whatsappBtn.href = "https://wa.me/919700097444?text=Greetings%20Aroma%20of%20Jasmine.%20I%20would%20like%20to%20inquire%20about%20ordering.";
+        return;
+      }
+
+      let subtotal = 0;
+      let orderText = "Aroma of Jasmine - Degustation Order:%0A";
+
+      container.innerHTML = cart.map((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        orderText += `- ${item.name} (${item.portion}) x${item.qty} = ₹${itemTotal}%0A`;
+
+        return `
+          <div class="bg-[#191714] p-3.5 border border-white/5 flex items-center justify-between">
+            <div>
+              <h5 class="text-xs font-semibold text-brand-cream">${item.name}</h5>
+              <span class="text-[10px] text-brand-gold font-mono">${item.portion} • ₹${item.price} each</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 bg-[#11100E] text-brand-creamDim hover:text-white flex items-center justify-center text-xs border border-white/10">-</button>
+              <span class="text-xs font-bold text-brand-cream w-4 text-center">${item.qty}</span>
+              <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 bg-[#11100E] text-brand-gold hover:text-white flex items-center justify-center text-xs border border-white/10">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+      orderText += `%0ASubtotal: ₹${subtotal.toLocaleString('en-IN')}%0APlease confirm delivery/takeaway timing.`;
+      whatsappBtn.href = `https://wa.me/919700097444?text=${orderText}`;
+    }
+
+    // ---------------------------------------------------------------
+    // 5. Dish Detail Modal Preview
+    // ---------------------------------------------------------------
+    function openDishDetailModal(dishId) {
+      const dish = menuCatalog.find(d => d.id === dishId);
+      if (!dish) return;
+
+      document.getElementById('dish-modal-img').src = dish.image;
+      document.getElementById('dish-modal-title').innerText = dish.name;
+      document.getElementById('dish-modal-price').innerText = `₹${dish.price}`;
+      document.getElementById('dish-modal-dietary').innerText = dish.badge;
+      document.getElementById('dish-modal-desc').innerText = dish.desc;
+      document.getElementById('dish-modal-portion').innerText = `Standard Portion: ${dish.portion}`;
+
+      const addBtn = document.getElementById('dish-modal-add-btn');
+      addBtn.onclick = () => {
+        addToSlate(dish.name, dish.price, dish.portion);
+        closeDishModal();
+      };
+
+      const modal = document.getElementById('dishModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeDishModal() {
+      const modal = document.getElementById('dishModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // ---------------------------------------------------------------
+    // 6. Reservation Handlers & Modals
+    // ---------------------------------------------------------------
+    function openReservationModal() {
+      const modal = document.getElementById('reservationModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeReservationModal() {
+      const modal = document.getElementById('reservationModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    const RESTAURANT_WHATSAPP = '919700097444';
+
+    function handleQuickReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('quick-res-name').value.trim();
+      const phone = document.getElementById('quick-res-phone').value.trim();
+      const slot = document.getElementById('quick-res-slot').value;
+
+      const msg = `*Aroma of Jasmine - Table Reservation Request*%0A` +
+                  `👤 Name: ${encodeURIComponent(name)}%0A` +
+                  `📞 Phone: ${encodeURIComponent(phone)}%0A` +
+                  `🕒 Slot / Time: ${encodeURIComponent(slot)}%0A` +
+                  `📍 Location: Donthanpalle, Shankarpalli Road%0A%0A` +
+                  `Please confirm table availability. Thank you!`;
+
+      window.open(`https://wa.me/${RESTAURANT_WHATSAPP}?text=${msg}`, '_blank');
+
+      const alert = document.getElementById('quick-res-alert');
+      alert.classList.remove('hidden');
+      setTimeout(() => alert.classList.add('hidden'), 6000);
+      e.target.reset();
+    }
+
+    function handleFullReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('full-res-name').value.trim();
+      const phone = document.getElementById('full-res-phone').value.trim();
+      const date = document.getElementById('full-res-date').value;
+      const guests = document.getElementById('full-res-guests').value;
+      
+      const windowEl = document.querySelector('input[name="res-window"]:checked');
+      const windowLabel = windowEl ? windowEl.closest('label').querySelector('span').innerText : 'Dinner';
+
+      const ambEl = document.querySelector('input[name="ambiance-pref"]:checked');
+      const ambLabel = ambEl ? ambEl.closest('label').innerText.trim() : 'Jasmine Courtyard';
+
+      const msg = `*Aroma of Jasmine - Table Reservation Request*%0A` +
+                  `👤 Guest Name: ${encodeURIComponent(name)}%0A` +
+                  `📞 Contact: ${encodeURIComponent(phone)}%0A` +
+                  `📅 Sitting Date: ${encodeURIComponent(date)}%0A` +
+                  `👥 Party Size: ${encodeURIComponent(guests)}%0A` +
+                  `⏰ Service Window: ${encodeURIComponent(windowLabel)}%0A` +
+                  `🌿 Seating Preference: ${encodeURIComponent(ambLabel)}%0A%0A` +
+                  `Please confirm this table booking.`;
+
+      window.open(`https://wa.me/${RESTAURANT_WHATSAPP}?text=${msg}`, '_blank');
+
+      const alert = document.getElementById('full-res-alert');
+      alert.classList.remove('hidden');
+      setTimeout(() => alert.classList.add('hidden'), 6000);
+      e.target.reset();
+    }
+
+    function handleModalReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('modal-res-name').value.trim();
+      const phone = document.getElementById('modal-res-phone').value.trim();
+      const date = document.getElementById('modal-res-date').value;
+      const guests = document.getElementById('modal-res-guests').value;
+      const slot = document.getElementById('modal-res-slot').value;
+
+      const msg = `*Aroma of Jasmine - Table Reservation Request*%0A` +
+                  `👤 Name: ${encodeURIComponent(name)}%0A` +
+                  `📞 Phone: ${encodeURIComponent(phone)}%0A` +
+                  `📅 Date: ${encodeURIComponent(date)}%0A` +
+                  `👥 Guests: ${encodeURIComponent(guests)}%0A` +
+                  `🕒 Time Slot: ${encodeURIComponent(slot)}%0A%0A` +
+                  `Please confirm table reservation.`;
+
+      window.open(`https://wa.me/${RESTAURANT_WHATSAPP}?text=${msg}`, '_blank');
+
+      const alert = document.getElementById('modal-res-alert');
+      alert.classList.remove('hidden');
+      setTimeout(() => {
+        alert.classList.add('hidden');
+        closeReservationModal();
+      }, 3500);
+      e.target.reset();
+    }
+
+    // ---------------------------------------------------------------
+    // 8. Ambient Golden Embers Particle Canvas
+    // ---------------------------------------------------------------
+    const canvas = document.getElementById('ambientCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const particleCount = 26;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.8 + 0.5,
+        alpha: Math.random() * 0.35 + 0.1,
+        speedY: Math.random() * 0.4 + 0.1,
+        speedX: (Math.random() - 0.5) * 0.3
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.y -= p.speedY;
+        p.x += p.speedX;
+        if (p.y < 0) {
+          p.y = height + 10;
+          p.x = Math.random() * width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201, 164, 92, ${p.alpha})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#C9A45C';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    // Initialize Menu & Particles on Load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMenuGrid(menuCatalog);
+      animateParticles();
+      renderSlate();
+    });
+  </script>
+</body>
+</html>
